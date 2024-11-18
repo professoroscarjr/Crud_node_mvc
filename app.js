@@ -15,9 +15,10 @@ app.get('/add', (req, res) => res.render('add'));
 app.post('/add', userController.addUser);
 app.get('/edit/:id', userController.getUserById);
 app.post('/edit/:id', userController.updateUser);
-app.get('/delete/:id', userController.deleteUser);
+app.get('/dell/:id', userController.getdeleteByUser);
+app.post('/dell/:id', userController.deleteUser);
 
 // Iniciar o servidor
-app.listen(3000, () => {
-    console.log('Servidor rodando na porta 3000');
+app.listen(2000, () => {
+    console.log('Servidor rodando na porta 2000');
 });

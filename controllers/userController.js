@@ -1,7 +1,9 @@
 const User = require('../models/userModel');
-
+//Esta linha exporta a função para que ela possa ser usada em outras partes do aplicativo
 exports.getAllUsers = (req, res) => {
+    // Esta linha chama uma função 
     User.getAllUsers((users) => {
+        //Depois que os dados do usuário são recuperados, o método é usado para renderizar a exibição.
         res.render('index', { users });
     });
 };
@@ -10,6 +12,14 @@ exports.getUserById = (req, res) => {
     const userId = req.params.id;
     User.getUserById(userId, (user) => {
         res.render('edit', { user });
+    });
+};
+
+///exibir usuário antes de deletar 
+exports.getdeleteByUser = (req, res) => {
+    const userId = req.params.id;
+    User.getUserById(userId, (user) => {
+        res.render('dell', { user });
     });
 };
 
@@ -40,3 +50,5 @@ exports.deleteUser = (req, res) => {
         res.redirect('/');
     });
 };
+
+

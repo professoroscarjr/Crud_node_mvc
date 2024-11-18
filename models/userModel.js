@@ -1,10 +1,16 @@
 const db = require('../config/db');
 
 const User = {
+    // Esta linha define uma função chamada que recebe um único argumento,
     getAllUsers: (callback) => {
+        //Esta linha declara uma cadeia de caracteres de consulta SQL que seleciona todas as colunas () da tabela
         const sql = 'SELECT * FROM users';
+        //Esta linha executa a consulta SQL usando uma função
         db.query(sql, (err, results) => {
+            // Se ocorrer um erro durante a execução da consulta, o objeto será gerado,
+            // o que provavelmente interromperá o aplicativo ou disparará um manipulador de erros.
             if (err) throw err;
+            // Se a consulta for bem-sucedida, o objeto será passado para a função
             callback(results);
         });
     },
